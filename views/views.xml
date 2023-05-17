@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sale_order_form_view">
+            <field name="name">sale.order.line</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="after">
+                    <field name="link" string="الرابط"/>
+                    <button name="confirm_link" class="btn btn-secondary" string="تأكيد الرابط"
+                         help="Confirm the entered link."
+                         type="object" states="draft,sent,sale"/> 
+                    <field name="base_number" string="رقم الهيكل" readonly="1"/>
+                    <field name="card_number" string="رقم البطاقة" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
